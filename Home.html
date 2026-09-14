@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>S Shop</title>
+
+    <link rel="stylesheet" href="design.css">
+
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+     Header
+========================== -->
+
+    <header class="head">
+
+        <a href="Home.html" style="text-decoration: none;">
+    <h1>S Shop</h1>
+</a>
+         
+
+        <!-- Navigation -->
+
+        <nav>
+
+            <a href="./Home.html">Home</a>
+
+            <a href="./product.html">Products</a>
+
+            <a href="./about.html">About Us</a>
+
+        </nav>
+
+
+        <!-- Search -->
+
+        <form class="search-form" id="searchForm">
+
+            <input type="search" id="searchInput" placeholder="Search items" autocomplete="off">
+
+            <button type="submit">
+                🔍
+            </button>
+
+        </form>
+
+    </header>
+
+
+    <!-- =========================
+     Main
+========================== -->
+
+    <main class="main">
+
+
+        <!-- Hero -->
+
+        <div>
+
+            <img  class="hero" src="./media/ChatGPT Image Sep 6, 2026, 10_16_27 PM.png" alt="S Shop Gaming">
+
+        </div>
+
+
+        <!-- =========================
+         Products
+    ========================== -->
+
+        <div class="products" id="products">
+
+
+            <!-- Gaming PC -->
+
+            <div class="product-card" data-name="Gaming PC" data-price="200 $" data-category="Gaming PC"
+                data-description="A powerful gaming PC designed for gaming and everyday use.">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Vy8W--k6zL32YiDwYEQqWHMTSwpCiY1-Lhb1wam7jg&s=10"
+                    alt="Gaming PC">
+
+                <h2>Gaming PC</h2>
+
+                <p class="price">
+                    200 $
+                </p>
+
+            </div>
+
+
+            <!-- PS5 -->
+
+            <div class="product-card" data-name="PS5" data-price="399 $" data-category="Console"
+                data-description="PlayStation 5 gaming console with powerful performance and fast loading.">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoEbOiuaMs9_rfew1FPnBFL6zjb2WnD6tw2LlvIJaDZw&s=10"
+                    alt="PS5">
+
+                <h2>PS5</h2>
+
+                <p class="price">
+                    399 $
+                </p>
+
+            </div>
+
+
+            <!-- Xbox -->
+
+            <div class="product-card" data-name="Xbox Series X" data-price="399 $" data-category="Console"
+                data-description="Xbox Series X with high performance, fast loading and excellent gaming experience.">
+
+                <img src="./media/images2.jpg" alt="Xbox Series X">
+
+                <h2>Xbox Series X</h2>
+
+                <p class="price">
+                    399 $
+                </p>
+
+            </div>
+
+
+            <!-- Headset -->
+
+            <div class="product-card" data-name="Gaming Headset" data-price="89 $" data-category="Headset"
+                data-description="Gaming headset with clear sound and comfortable design for long gaming sessions.">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf0h10Fj-Ee7h0-fQiUJUX3x2ppff97PUcnDJ9pYOksw&s=10"
+                    alt="Gaming Headset">
+
+                <h2>Gaming Headset</h2>
+
+                <p class="price">
+                    89 $
+                </p>
+
+            </div>
+
+
+            <!-- Keyboard -->
+
+            <div class="product-card" data-name="Gaming Keyboard" data-price="75 $" data-category="Keyboard"
+                data-description="Mechanical gaming keyboard with RGB lighting and responsive keys.">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4vYvYeeg9eZFARzpGKLaRYh2F3A8oL3Jftf4LMxT_mw&s=10"
+                    alt="Gaming Keyboard">
+
+                <h2>Gaming Keyboard</h2>
+
+                <p class="price">
+                    75 $
+                </p>
+
+            </div>
+
+
+            <!-- Mouse -->
+
+            <div class="product-card" data-name="Gaming Mouse" data-price="45 $" data-category="Mouse"
+                data-description="Gaming mouse with accurate sensor, fast response and comfortable design.">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt4RUFFXxWcCag-TlWBmX4xeUL6BPR6DQoQtq7Ksxfww&s=10"
+                    alt="Gaming Mouse">
+
+                <h2>Gaming Mouse</h2>
+
+                <p class="price">
+                    45 $
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+     Product Popup
+========================== -->
+
+    <div class="popup" id="productPopup">
+
+        <div class="popup-content">
+
+
+            <!-- Close -->
+
+            <button class="close-popup" id="closePopup">
+                ✕
+            </button>
+
+
+            <!-- Product Image -->
+
+            <img id="popupImage" src="" alt="Product">
+
+
+            <!-- Product Information -->
+
+            <div class="popup-info">
+
+                <h2 id="popupName"></h2>
+
+                <p class="popup-price" id="popupPrice"></p>
+
+                <p id="popupCategory"></p>
+
+                <p id="popupDescription"></p>
+
+
+                <button class="buy-button">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+     JavaScript
+========================== -->
+
+    <script>
+
+
+        /* =========================
+           Search
+        ========================== */
+
+        const searchForm =
+            document.getElementById("searchForm");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+
+        searchForm.addEventListener(
+            "submit",
+            function (event) {
+
+                // جلوگیری از رفرش شدن صفحه
+
+                event.preventDefault();
+
+
+                // گرفتن متن جستجو
+
+                const searchText =
+                    searchInput.value.trim();
+
+
+                // اگر چیزی نوشته نشده بود
+
+                if (searchText === "") {
+
+                    return;
+
+                }
+
+
+                // رفتن به صفحه Products
+                // همراه عبارت جستجو
+
+                window.location.href =
+                    "product.html?search=" +
+                    encodeURIComponent(searchText);
+
+            }
+        );
+
+
+
+        /* =========================
+           Product Popup
+        ========================== */
+
+
+        const popup =
+            document.getElementById("productPopup");
+
+
+        const popupImage =
+            document.getElementById("popupImage");
+
+
+        const popupName =
+            document.getElementById("popupName");
+
+
+        const popupPrice =
+            document.getElementById("popupPrice");
+
+
+        const popupCategory =
+            document.getElementById("popupCategory");
+
+
+        const popupDescription =
+            document.getElementById("popupDescription");
+
+
+        const closePopup =
+            document.getElementById("closePopup");
+
+
+
+        /* گرفتن تمام محصولات */
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+
+
+        /* کلیک روی محصول */
+
+        products.forEach(function (product) {
+
+
+            product.addEventListener(
+                "click",
+                function () {
+
+
+                    /* گرفتن اطلاعات محصول */
+
+                    const name =
+                        product.dataset.name;
+
+
+                    const price =
+                        product.dataset.price;
+
+
+                    const category =
+                        product.dataset.category;
+
+
+                    const description =
+                        product.dataset.description;
+
+
+                    /* گرفتن عکس همان محصول */
+
+                    const image =
+                        product.querySelector("img").src;
+
+
+
+                    /* قرار دادن اطلاعات داخل Popup */
+
+                    popupName.textContent =
+                        name;
+
+
+                    popupPrice.textContent =
+                        price;
+
+
+                    popupCategory.textContent =
+                        "Category: " + category;
+
+
+                    popupDescription.textContent =
+                        description;
+
+
+                    popupImage.src =
+                        image;
+
+
+
+                    /* باز کردن Popup */
+
+                    popup.classList.add("active");
+
+                }
+            );
+
+        });
+
+
+
+        /* =========================
+           Close Button
+        ========================== */
+
+        closePopup.addEventListener(
+            "click",
+            function () {
+
+                popup.classList.remove("active");
+
+            }
+        );
+
+
+
+        /* =========================
+           Close by clicking outside
+        ========================== */
+
+        popup.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === popup) {
+
+                    popup.classList.remove("active");
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
